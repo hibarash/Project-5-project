@@ -2,6 +2,8 @@ require_relative "boot"
 
 require "rails/all"
 
+
+
 # Require the gems listed in Gemfile, including any gems
 # you've limited to :test, :development, or :production.
 Bundler.require(*Rails.groups)
@@ -22,6 +24,16 @@ module Phase5Project
     # Only loads a smaller set of middleware suitable for API only apps.
     # Middleware like session, flash, cookies can be added back manually.
     # Skip views, helpers and assets when generating a new resource.
+
+    # primary_abstract_class
+
     config.api_only = true
+    
+
+  
+  # config.middleware.use ActionDispatch::Cookies
+  # config.middleware.user ActionDispatch::Sessions::CookieStore
+
+  # config.action_dispatch.cookies_same_site_protection = :strict
   end
 end
