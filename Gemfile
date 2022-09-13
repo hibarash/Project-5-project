@@ -50,4 +50,5 @@ group :development do
   # gem "spring"
 end
 gem 'faker'
+gem 'activerecord-session_store'
 

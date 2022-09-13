@@ -1,5 +1,6 @@
 class ItemsController < ApplicationController
     def index
+        
         render json: Item.all
     end
 
@@ -13,8 +14,8 @@ class ItemsController < ApplicationController
     end
 
     def create
-        item_to_add = User.new(item_create_params)
-        if item_to_add.save
+        item_to_add = User.create(item_create_params)
+        if item_to_add.create
             render json: item_to_add
         else
             render json: {"errors": item_to_add.errors.full_messages}, status: :unprocessable_entity
@@ -24,9 +25,13 @@ class ItemsController < ApplicationController
 
     def destroy
         if item_to_delete
-            item_to_delete.item.destroy_all
+            item_to_delete.cart_items.each do |each_cart_item|
+            item_to_delete.cart_items.destroy
+            each_cart_item.destroy
+            end
             ### do i need anything else to delete
-
+            ## destroy cart-items
+            each_item.destroy
             head :no_content
         else  
             render json: {"errors": "Item does not exisit"}, status: :not_found
@@ -38,6 +43,6 @@ class ItemsController < ApplicationController
     private
 
     def item_create_params
-        params.require(:item).permit(:clothing_type, :price)
+        params.require(:item).permit(:clothing_type, :price, :image)
     end
 end

@@ -1,10 +1,14 @@
 class CartsController < ApplicationController
     def index
-        render json: Cart.all
+        
+        carts = current_user.carts
+        render json: carts
     end
     
     def show
         carts = Cart.find_by(id: params[:id])
+        # carts = current_user.carts
+        
         if carts 
             render json: carts
         else  
@@ -31,12 +35,16 @@ class CartsController < ApplicationController
     end
 
     def destroy
-        cart_to_delete = Cart.find_by(id:params[:id])
+        cart_to_delete = Cart.find_by(id: params[:id])
         if cart_to_delete
-            cart_to_delete.users.destroy_all
-            cart_to_delete.items.destroy_all
-            #cart_to_delete.cart_items.destroy_all
+            cart_to_delete.cart_items.each do |each_cart_item|
+            each_cart_item.cart_items.destroy_all
             head :no_content
+            end
+            each_cart.destroy
+            #cart_to_delete.cart_items.destroy_all
+            #destroy cart-items
+            # head :no_content
         else  
             render json:{"errors": "Cart does not exist"}, status: :not_found
         end
@@ -50,3 +58,4 @@ class CartsController < ApplicationController
         params.require(:cart).permit(:name, :user_id) # do i need user id??
     end
 end
+
