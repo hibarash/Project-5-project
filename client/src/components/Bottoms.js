@@ -3,7 +3,7 @@ import { useEffect, useState } from 'react';
 
 
 
-function Bottoms(itemBottoms, users){
+function Bottoms({itemBottoms, users}){
     const [items, setItems] = useState([])
     const [isOpen, setIsOpen] = useState([])
     
@@ -24,7 +24,7 @@ function Bottoms(itemBottoms, users){
         (eachItem)=>{
             return(<BottomsCard
             users={users}
-            key={(eachItem)}
+            key={(eachItem.id)}
             itemProp={eachItem}
             setIsOpen={setIsOpen}
             isOpen={isOpen}

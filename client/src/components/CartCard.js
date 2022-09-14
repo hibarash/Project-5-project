@@ -7,12 +7,12 @@ function CartCard( props ){
     const [itemsInCart, setItemsInCart] = useState([])
     // const {deleteFromCart} = props
     // console.log(deleteFromCart)
-    function deleteFromCart(id){
-        fetch(`/cart_items/${id}`,{
-        method:"DELETE",
-        }).then((res) => res.json());
-        setItemsInCart(itemsInCart.filter((itemsInCart) => itemsInCart.id !==id))
-    }
+    // function deleteFromCart(id){
+    //     fetch(`/cart_items/${id}`,{
+    //     method:"DELETE",
+    //     }).then((res) => res.json());
+    //     setItemsInCart(itemsInCart.filter((itemsInCart) => itemsInCart.id !==id))
+    // }
     
 
     
@@ -23,8 +23,8 @@ function CartCard( props ){
     <div>
         <h1>{props.itemProp.clothing_type}</h1>
         <h2>{props.itemProp.price}</h2>
-        <img src={props.itemProp.image}/>
-        <button onClick={deleteFromCart}> Delete Item </button> 
+        <img src={props.itemProp.item_in_cart_to_delete.image}/>
+    <button onClick={(synthEvent) => {props.deleteFromCart(props.itemProp.id_to_delete)}}> Delete Item </button> 
     </div>
 
     

@@ -3,8 +3,9 @@ import { useEffect, useState } from 'react';
 
 
 
-function Shoes(props){
+function Shoes({itemsShoes, users}){
     const [items, setItems] = useState([])
+    const [isOpen, setIsOpen] = useState([])
     
     useEffect(() => {
         fetch("/items")
@@ -22,8 +23,12 @@ function Shoes(props){
     {items.map(
         (eachItem)=>{
             return(<ShoesCard
+            users={users}
             key={(eachItem)}
-            itemProp={eachItem}/>)
+            itemProp={eachItem}
+            setIsOpen={setIsOpen}
+            isOpen={isOpen}
+            />)
         } 
     )}
     

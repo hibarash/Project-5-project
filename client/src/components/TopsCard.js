@@ -33,7 +33,7 @@ function TopsCard({setIsOpen, itemProp, users, isOpen}){
     
     }
     return(
-        <div className="image-comtainer">
+        <div className="image-container">
             <h1>{clothing_type} </h1>
             <img src={image} alt=""/>
             <button onClick={ toggleToCart }>Add Top</button>

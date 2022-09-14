@@ -24,6 +24,8 @@ function App() {
   const [newUser, setNewUser] = useState([])
   const [userData, setUserData] = useState([])
   const [itemsInCart, setItemsInCart] = useState([])
+  // const [newCartItems, setNewCartItems] = useState([])
+  
   
   useEffect(() => {
     fetch("/current")
@@ -33,13 +35,27 @@ function App() {
   }, [])
   console.log(users)
 
-  function deleteFromCart(id){
-    fetch(`/cart_items/${id}`,{
-      method:"DELETE",
-    }).then((res) => res.json());
-    setItemsInCart(itemsInCart.filter((itemsInCart) => itemsInCart.id !==id))
-  }
+  // function deleteFromCart(id){
+  //   console.log("success:", id)
+  //   fetch(`/cart_items/${id}`,{
+  //     method:"DELETE",
+  //   }).then((res) => res.json());
+  //   setItemsInCart(itemsInCart.filter((itemsInCart) => itemsInCart.id !==id))
+  // }
 
+  // function addToCart(e){
+  //   console.log(e)
+  //   e.preventDefault();
+  //   fetch('cart_items', {
+  //     method: 'POST',
+  //     headers: {"Content-Type": "application/json"},
+  //     body: JSON.stringify(newCartItems),
+  //   }).then((r) => {
+  //     if( r.ok){
+  //       r.json().then((newCartItems) => setNewCartItems(newCartItems));
+  //     }
+  //   })
+  // }
 
 
   // function addNewUser(newUser){
@@ -72,10 +88,10 @@ return (<>
     {/* <section className="layout"><Tops itemsToMap={items} /></section>  */}
     </Route>
     <Route exact path="/item/2"> 
-    <Bottoms itemBottoms={items}  /> 
+    <Bottoms itemBottoms={items} users={users}  /> 
     </Route>
     <Route exact path="/item/3"> 
-    <Shoes /*itemShoes={items}*/  />
+    <Shoes itemShoes={items} users={users}  />
     </Route>
     <Route exact path="/item/4"> 
     <Accessory /*itemsToMap={items}*/  />
@@ -92,7 +108,8 @@ return (<>
     </Route>
     <Route exact path="/carts">
     <Cart cartsToMap={carts} 
-    deleteFromCart={deleteFromCart}/>{/* is this right? */}
+  
+    />{/* is this right? */}
     </Route> 
 
     

@@ -18,32 +18,43 @@ class CartItemsController < ApplicationController
 
     #     end
     # end
-    # def create
+    
+    def index
+        render json: CartItem.all
+    end
 
-    # end
-    # def index
-    #     render json: CartItem.all
-
-    # end
+    def create
+        new_cart_item = CartItem.create(new_item_params)
+        if new_cart_item.create
+            render json: item_to_add
+        else
+            render json: {"errors": new_cart_item.error.full_messages}, status: :unprocessable_entity
+        end
+    end
 
     def destroy 
         cart_item_delete = CartItem.find_by(id:params[:id])
-            if cart_item_delete
-                cart_item_delete.items.each do |each_item|
-                    cart_items.each_item.destroy
-                end
+            if cart_item_delete.destroy
                 head :no_content
+
             else render json: {"error": cart_item_delete.errors.full_messages}, status: :not_found
             
                 # come back to this 
-                cart_item.destroy
+                
             end
+
     end
 
     private
     def update_cart_params
         params.require(:cart_item).permit(:cart_id, :item_id)
     end
+
+    def new_item_params
+        params.require(:cart_item).permit(:cart_id, :item_id)
+    end
+
+
 end
 # user_to_delete = User.find_by(id:params[:id])
 #         if user_to_delete

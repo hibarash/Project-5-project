@@ -6,10 +6,12 @@ import { useState } from "react";
 function BottomsCard({setIsOpen, itemProp, users, isOpen}){
     let {clothing_type, image} = itemProp
     //console.log(toggleToCart)
+    console.log((users, [users]))
     
     // const [addToCart, setAddTocart] = useState(false)
-function toggleToCart(){
-    setIsOpen(!isOpen)
+    function toggleToCart(){
+    
+        setIsOpen(!isOpen)
         let newItems = {
             name: clothing_type,
             cart_id: users.carts.id,
@@ -26,7 +28,7 @@ function toggleToCart(){
 
     // setAddTocart(addToCart);
     // console.log(setAddTocart)    
-}
+    }
     
     // console.log("props", props.itemProp.top.id)
 
