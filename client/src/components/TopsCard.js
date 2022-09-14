@@ -4,7 +4,7 @@
 
 
 
-function TopsCard({setIsOpen, itemProp, users, isOpen, carts}){
+function TopsCard({setIsOpen, itemProp, users, isOpen}){
     let {clothing_type, image, price} = itemProp
     // console.log(itemProp)
     
@@ -37,7 +37,7 @@ function TopsCard({setIsOpen, itemProp, users, isOpen, carts}){
     }
     return(
         <section className="layout">
-        <div className="card">
+        <div >
             
             <img src={image} alt=""/>
             <div class="container">

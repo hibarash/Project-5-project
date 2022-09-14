@@ -10,12 +10,12 @@ function ShoesCard({setIsOpen, itemProp, users, isOpen}){
         // console.log(toggleToCart)
         setIsOpen(!isOpen)
         let newItems = {
-            name: clothing_type,
-            cart_id: users.carts.id,
+            // name: clothing_type,
+            cart_id: users.carts[0].id,
             item_id: itemProp.id,
-            image_url: image
+            // image_url: image
         }
-    fetch("/carts",{
+    fetch("/cart_items",{
         method:"POST",
         headers: {'Content-Type':'application/json'},
         body: JSON.stringify(newItems)
@@ -26,15 +26,16 @@ function ShoesCard({setIsOpen, itemProp, users, isOpen}){
     // console.log("props", props.itemProp.top.id)
     }
     return(
-        
-        <div>
+        <section className="layout">
+        <div className="card">
+        <div class="container">
             <h1>{clothing_type} </h1>
             <h2> ${price}</h2>
             <img src={image}  alt=""/>
             <button onClick={ toggleToCart }>Add To Cart</button>
-
         </div>
-        
+        </div>
+        </section>
     
     )
 }

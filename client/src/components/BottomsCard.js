@@ -13,12 +13,12 @@ function BottomsCard({setIsOpen, itemProp, users, isOpen}){
     
         setIsOpen(!isOpen)
         let newItems = {
-            name: clothing_type,
-            cart_id: users.carts.id,
+            // name: clothing_type,
+            cart_id: users.carts[0].id,
             item_id: itemProp.id,
-            image_url: image
+            // image_url: image
         }
-        fetch("/carts",{
+        fetch("/cart_items",{
             method:"POST",
             headers: {'Content-Type':'application/json'},
             body: JSON.stringify(newItems)
@@ -34,15 +34,17 @@ function BottomsCard({setIsOpen, itemProp, users, isOpen}){
 
 
     return(
-
+        <section className="layout">
         <div>
             
             <img src={image} alt=""/>
+            <div class="container">
             <h1>Bottoms </h1>
             <h2> ${price}</h2>
             <button onClick={ toggleToCart} >Add To Cart</button>
-
+            </div>
         </div>
+        </section>
     )
 }
 

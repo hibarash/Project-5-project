@@ -24,7 +24,7 @@ function Shoes({itemsShoes, users}){
         (eachItem)=>{
             return(<ShoesCard
             users={users}
-            key={(eachItem)}
+            key={eachItem.id}
             itemProp={eachItem}
             setIsOpen={setIsOpen}
             isOpen={isOpen}

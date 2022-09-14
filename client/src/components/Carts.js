@@ -30,7 +30,7 @@ function Carts(props) {
         const filterItems = serializedCartItems.filter((itemInCart) => (itemInCart.id_to_delete !==id))
         
         setSerializedCartItems(filterItems)
-        console.log("filtered stuff:", filterItems)
+        // console.log("filtered stuff:", filterItems)
     }
     // function deleteFromCart(id){
     //     console.log("success:", id)
