@@ -58,7 +58,7 @@ item10 = Item.create(clothing_type: "top", price: rand(1..5), image: "https://en
 item11 = Item.create(clothing_type: "top", price: rand(1..5), image: "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSkqib239Sxi92bg8qg_4ApkHOGdEfYiusmWA&usqp=CAU")
 item12 = Item.create(clothing_type: "top", price: rand(1..5), image: "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRYYRRvzH9OV_5IclkmpsCgG7LvT5M3CzNmPw&usqp=CAU")
 item13 = Item.create(clothing_type: "shoes", price: rand(1..5), image: "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRauiyVtyy7fxmAi-oL92QWpq9mRD3-HFNCR2Rlh5En50Fp03N5WSat3r0XMhVEp04-lN0&usqp=CAU")
-item14 = Item.create(clothing_type: "shoes", price: rand(1..5), image: "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSFyIX-0vq8NsUKRh-kXE97vG4Dq6NCm7_kQA&usqp=CAU")
+item14 = Item.create(clothing_type: "shoes", price: rand(1..5), image: "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRyiuTfxj0flniLoywoYyxa2Kt6rUec2aY4yg&usqp=CAU")
 item15 = Item.create(clothing_type: "shoes", price: rand(1..5), image: "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQ9XXq2cUqFpmCsfdPI8mMUBaLJP84iUL-SCA&usqp=CAU")
 item16 = Item.create(clothing_type: "shoes", price: rand(1..5), image: "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcT9AlVe-CR2Lg4uHnajHBZvbFAwN4hF5FZTHw&usqp=CAU")
 item17 = Item.create(clothing_type: "shoes", price: rand(1..5), image: "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRUm5gHBRWUcDxLsxEEqlRjje8v8GVgWJeSUQ&usqp=CAU")

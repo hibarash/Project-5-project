@@ -19,16 +19,16 @@ function Carts(props) {
             setCart(arrayWithOneCartObj[props.id])
             setCartItems(arrayWithOneCartObj[0].items)
             setSerializedCartItems(arrayWithOneCartObj[0].formatted_cart_items)
-            // console.log("get items in cart:", arrayWithOneCartObj[0].items)
+            console.log("get items in cart:", arrayWithOneCartObj[0].items) 
     })
     },[])
     function deleteFromCart(id){
-        // console.log("success:", id)
+        console.log("success:", id)
         fetch(`/cart_items/${id}`,{
             method:"DELETE",
         }).then((res) => res.json());
-        const filterItems = serializedCartItems.filter((itemsInCart) => itemsInCart.id !==id)
-        console.log("filtered stuff:", filterItems)
+        const filterItems = serializedCartItems.filter((itemInCart) => (itemInCart.id_to_delete !==id))
+        
         setSerializedCartItems(filterItems)
         console.log("filtered stuff:", filterItems)
     }

@@ -1,25 +1,28 @@
-import styled from "styled-components";
+// import styled from "styled-components";
 
 
 
-function TopsCard({setIsOpen, itemProp, users, isOpen}){
-    let {clothing_type, image} = itemProp
+
+
+function TopsCard({setIsOpen, itemProp, users, isOpen, carts}){
+    let {clothing_type, image, price} = itemProp
     // console.log(itemProp)
     
     // console.log(items)
 // console.log("what is this", props.item.clothing_type)
-    console.log(users)
+    console.log(users.carts[0])
     function toggleToCart(){
 
         // console.log(toggleToCart)
         setIsOpen(!isOpen)
+        // console.log(users[carts.map(id)])
         let newItems = {
-            name: clothing_type,
-            cart_id: users.carts.id,
+            // name: clothing_type,
+            cart_id: users.carts[0].id,
             item_id: itemProp.id,
-            image_url: image
+            // image_url: image
     }
-    fetch("/carts",{
+    fetch("/cart_items",{
         method:"POST",
         headers: {'Content-Type':'application/json'},
         body: JSON.stringify(newItems)
@@ -33,12 +36,20 @@ function TopsCard({setIsOpen, itemProp, users, isOpen}){
     
     }
     return(
-        <div className="image-container">
-            <h1>{clothing_type} </h1>
+        <section className="layout">
+        <div className="card">
+            
             <img src={image} alt=""/>
-            <button onClick={ toggleToCart }>Add Top</button>
-
+            <div class="container">
+                <h4>{clothing_type} </h4>
+                <p> ${price}</p>
+                <button onClick={ toggleToCart }>Add To Cart</button>
+                
+            </div>
+            
         </div>
+        </section>
+        
     )
 
 }

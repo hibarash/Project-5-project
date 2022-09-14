@@ -78,7 +78,7 @@ function App() {
 
 
 return (<>
-  <h1> Should see navBar here</h1>
+  {/* <h1> Should see navBar here</h1> */}
 
     <NavBar/>
     <Switch>

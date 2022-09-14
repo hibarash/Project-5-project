@@ -24,18 +24,19 @@ class CartItemsController < ApplicationController
     end
 
     def create
+        
         new_cart_item = CartItem.create(new_item_params)
-        if new_cart_item.create
-            render json: item_to_add
+        if new_cart_item.valid?
+            render json: new_cart_item
         else
-            render json: {"errors": new_cart_item.error.full_messages}, status: :unprocessable_entity
+            render json: {"errors": new_cart_item.errors.full_messages}, status: :unprocessable_entity
         end
     end
 
     def destroy 
         cart_item_delete = CartItem.find_by(id:params[:id])
             if cart_item_delete.destroy
-                head :no_content
+                render json: {}
 
             else render json: {"error": cart_item_delete.errors.full_messages}, status: :not_found
             

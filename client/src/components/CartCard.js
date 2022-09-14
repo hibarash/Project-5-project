@@ -3,7 +3,7 @@ import { useState } from "react";
 
 
 function CartCard( props ){
-    console.log("cart props:", props)
+    // console.log("cart props:", props)
     const [itemsInCart, setItemsInCart] = useState([])
     // const {deleteFromCart} = props
     // console.log(deleteFromCart)

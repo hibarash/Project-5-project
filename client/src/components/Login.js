@@ -35,20 +35,22 @@ function Login({userData, setUserData}) {
     }
     return(<>
         {userData.name ? 
-            <h1> logged in {userData.name}</h1>
+            (<h1> logged in {userData.name}</h1>)
             :
-        <form className='form' onSubmit={onSubmit} >
+        (<form className='form' onSubmit={onSubmit} >
             <h1> Login </h1>
+            
             
             <label className='label'>Email Address</label>
             <input className='text-input' placeholder='Email Address' type="text" value={email} onChange={(e) => setEmail(e.target.value)} />
 
             <label className='label'>Password</label>    
             <input className='text-input' placeholder='Password' type="password" value={password} onChange={(e) => setPassword(e.target.value)} />
+            
 
             <button className='button' type="submit">Login</button>
 
-        </form>
+        </form>)
             }
     </>)
 }

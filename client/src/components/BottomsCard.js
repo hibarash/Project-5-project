@@ -4,7 +4,7 @@ import { useState } from "react";
 
 
 function BottomsCard({setIsOpen, itemProp, users, isOpen}){
-    let {clothing_type, image} = itemProp
+    let {clothing_type, image, price} = itemProp
     //console.log(toggleToCart)
     console.log((users, [users]))
     
@@ -36,9 +36,11 @@ function BottomsCard({setIsOpen, itemProp, users, isOpen}){
     return(
 
         <div>
-            <h1>{clothing_type} </h1>
+            
             <img src={image} alt=""/>
-            <button onClick={ toggleToCart} >Add Bottoms</button>
+            <h1>Bottoms </h1>
+            <h2> ${price}</h2>
+            <button onClick={ toggleToCart} >Add To Cart</button>
 
         </div>
     )
@@ -47,3 +49,15 @@ function BottomsCard({setIsOpen, itemProp, users, isOpen}){
 
 
 export default BottomsCard; 
+{/* <section className="layout">
+<div className="card">
+
+    <img src={image} alt=""/>
+    <div class="container">
+        <h4>{clothing_type} </h4>
+        <p> ${price}</p>
+        <button onClick={ toggleToCart }>Add Top</button>
+    </div>
+    
+</div>
+</section> */}

@@ -1,6 +1,7 @@
+// import styled from "styled-components";
 
 function ShoesCard({setIsOpen, itemProp, users, isOpen}){
-    let {clothing_type, image} = itemProp
+    let {clothing_type, image, price} = itemProp
     console.log((users, [users]))
     
     
@@ -25,15 +26,18 @@ function ShoesCard({setIsOpen, itemProp, users, isOpen}){
     // console.log("props", props.itemProp.top.id)
     }
     return(
-
+        
         <div>
             <h1>{clothing_type} </h1>
+            <h2> ${price}</h2>
             <img src={image}  alt=""/>
-            <button onClick={ toggleToCart }>Add Shoes</button>
+            <button onClick={ toggleToCart }>Add To Cart</button>
 
         </div>
-        //
+        
+    
     )
 }
+
 
 export default ShoesCard
