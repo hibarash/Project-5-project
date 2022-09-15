@@ -25,7 +25,7 @@ function NewUser() {
             }
             addNewUser(newUser)
         }}>
-            <h4> Create Account</h4>
+            <h4 className="create-account">  Create Account</h4>
             <p className='field required'>
                 <label className='label'>Full Name</label>
                 <input className='text-input' type="text" placeholder='Full Name' value={userName} onChange={(synthEvent)=>{setUserName(synthEvent.target.value)}}/>
@@ -38,7 +38,7 @@ function NewUser() {
                 <label className='label'>Password</label>
                 <input className='text-input' type="password" placeholder='Password' value={userPassword} onChange={(synthEvent)=>setUserPassword(synthEvent.target.value)}/>
             </p>
-            <button className='button' type="submit"> Add User </button>
+            <button className='add-new-user-button' type="submit"> Add User </button>
 
         </form>
     )

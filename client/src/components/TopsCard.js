@@ -10,7 +10,7 @@ function TopsCard({setIsOpen, itemProp, users, isOpen}){
     
     // console.log(items)
 // console.log("what is this", props.item.clothing_type)
-    console.log(users.carts[0])
+    
     function toggleToCart(){
 
         // console.log(toggleToCart)
@@ -37,14 +37,16 @@ function TopsCard({setIsOpen, itemProp, users, isOpen}){
     }
     return(
         <section className="layout">
-        <div >
-            
+        <div className="whole-card" >
+            <div className="card-image">
             <img src={image} alt=""/>
+            </div>
             <div class="container">
-                <h4>{clothing_type} </h4>
-                <p> ${price}</p>
-                <button onClick={ toggleToCart }>Add To Cart</button>
-                
+                <h1>{clothing_type} </h1>
+                <h2> ${price}</h2>
+                <div className="div-cart-button">
+                <button className="cart-button"  onClick={ toggleToCart }>Add To Cart</button>
+                </div>
             </div>
             
         </div>

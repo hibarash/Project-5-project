@@ -19,7 +19,7 @@ function Bottoms({itemBottoms, users}){
     }, [])
 
     return(<>
-    <h1>bottoms</h1>
+    <h1>Bottoms</h1>
     {items.map(
         (eachItem)=>{
             return(<BottomsCard

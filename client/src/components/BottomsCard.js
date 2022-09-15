@@ -35,15 +35,20 @@ function BottomsCard({setIsOpen, itemProp, users, isOpen}){
 
     return(
         <section className="layout">
-        <div>
-            
+        
+        <div className="whole-card">  
+            <div className="card-image">
             <img src={image} alt=""/>
-            <div class="container">
-            <h1>Bottoms </h1>
-            <h2> ${price}</h2>
-            <button onClick={ toggleToCart} >Add To Cart</button>
             </div>
-        </div>
+            <div class="container">
+            <h1>{clothing_type} </h1>
+            <h2> ${price}</h2>
+            <div className="div-cart-button">
+            <button className="cart-button"  onClick={ toggleToCart} >Add To Cart</button>
+            </div>
+            </div>
+            </div>    
+        
         </section>
     )
 }

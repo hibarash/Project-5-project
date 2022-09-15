@@ -20,11 +20,25 @@ function CartCard( props ){
 
 
     return(<>
-    <div>
+    
+    <div class="item">
+
+        <div className="description">
         <h1>{props.itemProp.clothing_type}</h1>
-        <h2>{props.itemProp.price}</h2>
-        <img src={props.itemProp.item_in_cart_to_delete.image}/>
-    <button onClick={(synthEvent) => {props.deleteFromCart(props.itemProp.id_to_delete)}}> Delete Item </button> 
+        </div>
+
+        <div className="image" > 
+            <img src={props.itemProp.item_in_cart_to_delete.image}/>
+        </div>
+
+        <div className="button">
+            <button onClick={(synthEvent) => {props.deleteFromCart(props.itemProp.id_to_delete)}}> X </button> 
+        </div>
+
+        <div className="total-price">
+        <h2>${props.itemProp.item_in_cart_to_delete.price}</h2>
+        </div>
+
     </div>
 
     

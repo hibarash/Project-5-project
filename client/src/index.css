@@ -133,16 +133,249 @@ ul.sub-menus a:hover{
   align-items: center;
 }
   img {
-    border-radius: 5px 5px 5px 5px;
+    border-radius: 5px 5px 0px 0px;
   }
-  h4,p{
+  h2 {
     text-align: center;
 }
 button {
+  position: relative;
   text-align: center;
 
 }
 
+/* shopping cart n bag*/
 
+* {
+  box-sizing: border-box;
+}
 
+html,
+body {
+  width: 100%;
+  height: 100%;
+  margin: 0;
+  background-color: whitesmoke;
+  font-family: 'Roboto', sans-serif;
+}
+.shopping-cart {
+  width: 750px;
+  height: 423px;
+  margin: 25px auto;
+  text-align: center;
+  background: whitesmoke;
+  /* box-shadow: 1px 2px 3px 0px rgba(0,0,0,0.10); */
+  border-radius: 6px;
+ 
+  display: flex;
+  flex-direction: column;
+}
+.title {
+  height: 60px;
+  border-bottom: 1px solid #E1E8EE;
+  padding: 20px 30px;
+  color: #5E6977;
+  font-size: 18px;
+  font-weight: 400;
+}
+ 
+.item {
+  padding: 20px 30px;
+  height: 280px;
+  display: flex;
+  /* align: center; */
+}
+ 
+.item:nth-child(3) {
+  border-top:  1px solid #E1E8EE;
+  border-bottom:  1px solid #E1E8EE;
+}
 
+.buttons {
+  position: relative;
+  padding-top: 30px;
+  margin-right: 60px;
+}
+
+.button {
+  width: 30px;
+  height: 30px;
+  /* background-color: #E1E8EE; */
+  border-radius: 6px;
+  border: none;
+  cursor: pointer;
+  align-items: center;
+}
+.delete-btn,
+
+.delete-btn {
+  width: 18px;
+  height: 17px;
+  
+}
+image {
+  margin-right: 25px;
+}
+.description {
+  padding-top: 10px;
+  margin-right: 60px;
+  width: 115px;
+}
+.total-price {
+  width: 83px;
+  padding-top: 27px;
+  text-align: center;
+  font-size: 16px;
+  color: #43484D;
+  font-weight: 300;
+}
+@media (max-width: 800px) {
+  .shopping-cart {
+    width: 100%;
+    height: auto;
+    overflow: hidden;
+  }
+  .item {
+    height: 200px;
+    flex-wrap: wrap;
+    justify-content: center;
+  }
+  .image img {
+    max-width: 50%;
+  }
+  .image,
+  .description {
+    width: 100%;
+    text-align: center;
+    margin: 6px 0;
+  }
+  .buttons {
+    margin-right: 20px;
+  }
+}
+button:focus,
+input:focus {
+  outline:0;
+}
+/* end of cart for now*/
+
+/* cards */
+.card-container{
+  display: grid; 
+
+  grid-template-rows: 1fr 1fr 1fr 1fr;
+  grid-template-columns: 1fr 1fr 1fr;
+  
+  gap: 0px;
+  height: 100%;
+  
+}
+
+/* login/ home page*/
+@import url(https://fonts.googleapis.com/css?family=Source+Sans+Pro:200,300);
+
+@prim: #53e3a6;
+
+*{
+	box-sizing: border-box;
+	margin: 100;
+	padding: 0;
+  
+	
+	font-weight: 300;
+}
+h1{
+  font-size: 30px;
+  transition-duration: 1s;
+  transition-timing-function: ease-in-put;
+  font-weight: 200;
+  text-align: center;
+}
+form{
+	padding: 20px 0;
+	position: relative;
+	z-index: 2;
+}
+input{
+  display: block;
+  appearance: none;
+  outline: 0;
+  border: 1px solid fade(white, 40%);
+  background-color: fade(white, 20%);
+  width: 250px;
+  
+  border-radius: 3px;
+  padding: 10px 15px;
+  margin: 0 auto 10px auto;
+  display: block;
+  text-align: center;
+  font-size: 18px;
+  
+  color: rgb(14, 0, 0);
+  
+  transition-duration: 0.25s;
+  font-weight: 300;
+}
+:hover{
+  background-color: fade(white, 40%);
+}
+button{
+  appearance: none ;
+  outline: 30;
+  background-color: rgb(255, 255, 255);
+  border: 0;
+  padding: 5px 5px;
+  /* color: @prim; */
+  border-radius: 3px;
+  width: 73px;
+  cursor: pointer;
+  font-size: 18px;
+  transition-duration: 0.25s;
+  align-items: center;
+  
+  
+}
+div.container{
+  /* height: 159px;
+  width: 175px;
+  color: black;
+  text-align: center; */
+  background-color: white;
+  outline-color: black;
+  
+}
+/* div.card{
+  width: 225px;
+  height: 412px;
+} */
+button.cart-button{
+  display: grid;
+  margin: auto;
+  background-color: whitesmoke; 
+  outline-color: black;
+  /* align-items: center; */
+  /* align-content: center;  */
+}
+div.whole-card{
+  align-items: center;
+
+  } 
+button.login-button{
+  display: grid;
+  margin: auto;
+
+}
+h4.create-account{
+  display: grid;
+  margin: auto;
+  text-align: center;
+  font-size: larger;
+  font-weight: 500;
+}
+button.add-new-user-button{
+  display: grid;
+  margin: auto;
+  border: black;
+  padding: 5px 15px;
+  font: 10px;
+}

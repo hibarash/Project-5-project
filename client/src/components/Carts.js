@@ -62,20 +62,11 @@ function Carts(props) {
     // console.log("filtered stuff:", filterItems)
 
     return(<>
+    <div className="shopping-cart">
     <h1>Shopping cart</h1>
-    {/* array of obj that were added to the cart  */}
-    <div>
-    {/* {cartItems.map( 
-        (eachItem) => {
-            return(<CartCard
-            key={eachItem.id}
-            setCartItems={setCartItems}
-            itemProp={eachItem}
-            deleteFromCart={props.deleteFromCart}
-            />)
-        }
-    )
-    } */}
+        <div className="title">
+            Shopping Bag
+    
     {serializedCartItems.map(
         (eachFormattedCartItem) => {
             return (<CartCard
@@ -83,17 +74,15 @@ function Carts(props) {
             setSerializedCartItems={setSerializedCartItems}
             itemProp={eachFormattedCartItem}
             deleteFromCart={deleteFromCart}
-
-            
             />)
         }
     )}
 
-    </div>
+    </div> {/* title*/}
 
 
     
-    
+    </div> {/* shopping cart*/}
     </>)
 }
 
