@@ -1,4 +1,5 @@
 class UsersController < ApplicationController
+    skip_before_action :authorized_user, only: [:create]
 
     def index
         render json: User.all
@@ -15,8 +16,9 @@ class UsersController < ApplicationController
     end
 
     def create
-        new_user = User.create(user_new_params)
+        new_user = User.create!(user_new_params)
         if new_user.valid?
+        byebug
             session[:logged_user] = user.id
             render json: new_user
         else  
@@ -30,7 +32,7 @@ class UsersController < ApplicationController
         if user_to_update.update(user_update_params)
             render json: user_to_update
         else  
-            render json: {"error": new_user.errors.full_messages}, status: :unprocessable_entity
+            render json: {"error": user_to_update.errors.full_messages}, status: :unprocessable_entity
         end
     end
     

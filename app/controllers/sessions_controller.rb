@@ -15,9 +15,16 @@ class SessionsController < ApplicationController
         end #watch authentication lecture 45 mins
 
     end
+    def current_user
+        
+        User.find_by(id: session[:logged_user])
+    
+    end
 
     def destroy
+        # byebug
         session.delete :logged_user
+        
     end
 end
 

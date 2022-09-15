@@ -4,12 +4,12 @@ import { BrowserRouter} from "react-router-dom";
 import {Switch, Route} from "react-router-dom";
 import NavBar from './components/NavBar';
 import Tops from './components/Tops';
-
+import Logout from './components/Logout'
 import Bottoms from './components/Bottoms';
 import Shoes from './components/Shoes';
 import Accessory from './components/Accessories';
 import User from './components/User';
-import NewUser from './components/NewUserForm';
+import NewUserForm from './components/NewUserForm';
 import Login from './components/Login';
 import Cart from './components/Carts';
 import { useEffect, useState } from 'react';
@@ -33,7 +33,7 @@ function App() {
     .then((data) => setUsers(data))
     // console.log(users) //worked
   }, [])
-  console.log(users)
+  // console.log(users)
 
   // function deleteFromCart(id){
   //   console.log("success:", id)
@@ -75,6 +75,16 @@ function App() {
   // })
   //   //console.log(data) //worked
   // }, [])
+  // function handleLogout(e){
+  //   e.preventDefault();
+  //   fetch('/logout', {
+  //     method: 'DELETE',
+  //   })
+  //   .then((r) => r.json())
+  //   .then(() => setUsers(null));
+  //   localStorage.clear();
+    
+  // }
 
 
 return (<>
@@ -99,9 +109,11 @@ return (<>
     <Route exact path="/users/">
     <User userToLog={users}  /> 
     </Route>
-    
-    <Route exact path="/create">
-    <NewUser sendUserData={userData}/> 
+    <Route exact path="/logout/">
+    {<Logout setUsers={setUsers} users={users}  />  }
+    </Route>
+    <Route exact path="/signup">
+    <NewUserForm setNewUser={setNewUser}/> 
     </Route>
     <Route exact path="/login"> 
     <Login userData={userData} setUserData={setUserData} />

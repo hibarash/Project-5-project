@@ -1,30 +1,34 @@
 import { useState } from 'react'
 
 
-function NewUser() {
+function NewUserForm({setNewUser}) {
     const [userName, setUserName] = useState("")
     const [userPassword, setUserPassword] = useState("")
     const [userEmail, setUserEmail] = useState("")
+    // const [user, setUser] = useState("")
 
-    function addNewUser(newUser){
-
-        fetch("/users", {
+    function handleSubmit(e){
+        e.preventDefault()
+        console.log(e)
+        fetch("/signup", {
             method: "POST",
             headers: {"Content-Type": "application/json"},
-            body: JSON.stringify(newUser),
+            body: JSON.stringify({
+                name: userName,
+                email: userEmail,
+                password: userPassword,
+            }),
+        }).then((res) => {
+            if (res.ok) {
+                res.json().then((newUser) => setNewUser(newUser));
+            }
         })
     }
     return(
-        <form className='form' onSubmit={(synthEvent) => {
-            synthEvent.preventDefault()
-
-            let newUser={
-                name: userName,
-                password: userPassword,
-                email: userEmail
-            }
-            addNewUser(newUser)
-        }}>
+        
+        <form className='form' onSubmit={handleSubmit}>
+            <h1> Welcome To Ilya & Co. </h1>
+            
             <h4 className="create-account">  Create Account</h4>
             <p className='field required'>
                 <label className='label'>Full Name</label>
@@ -43,4 +47,4 @@ function NewUser() {
         </form>
     )
 }
-export default NewUser
+export default NewUserForm

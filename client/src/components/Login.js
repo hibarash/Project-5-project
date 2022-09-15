@@ -35,12 +35,13 @@ function Login({userData, setUserData}) {
     }
     return(<>
         {userData.name ? 
-            (<h1> logged in {userData.name}</h1>)
+            (<h1> Welcome {userData.name}!</h1>)
             :
         (<form className='form' onSubmit={onSubmit} >
             <h1> Welcome To Ilya & Co. </h1>
             
             
+            <h2> Sign In Below </h2>
             <label className='label'>Email Address</label>
             <input className='text-input' placeholder='Email Address' type="text" value={email} onChange={(e) => setEmail(e.target.value)} />
 

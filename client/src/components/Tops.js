@@ -20,7 +20,7 @@ import { useEffect, useState } from 'react';
     }, [])
 
     return(<>
-    {/* <h1>tops</h1> */}
+    <h1>Tops</h1>
     {items.map(
         (eachItem)=>{
             return(<TopsCard
